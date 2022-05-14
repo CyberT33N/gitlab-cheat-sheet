@@ -58,10 +58,16 @@ services:
 
 <br><br>
 
+.env
+```bash
+GITLAB_HOME=/srv/gitlab
+```
+
+<br><br>
 
 Next run:
 ```bash
-sudo docker-compose up -d
+sudo -E docker-compose up
 ```
 
 <br><br>
