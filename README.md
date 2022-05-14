@@ -89,6 +89,16 @@ sudo docker inspect containerNameHere
 ```
 
 
+<br><br>
+
+Get your Gitlab password:
+```
+sudo docker exec -it gitlabContainerNameHere bash
+cd etc/gitlab
+cat initial_root_password
+```
+  - You username is root
+
 
 
 
