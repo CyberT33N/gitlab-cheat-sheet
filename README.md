@@ -112,11 +112,25 @@ cat initial_root_password
 <br><br>
 
 If needed you can reset your password of the root with:
-```
+```bash
 sudo docker exec -it gitlab-ce bash
 gitlab-rake "gitlab:password:reset[root]"
 ```
 
+
+
+
+
+<br><br>
+
+Next add your SSH Key on Gitlab by clicking on your Avatar > Settings > SSH Keys. Create a sample project and try if you can clone it via ssh
+```bash
+git clone git@gitlab.local.com:websites/porn-scrap.git
+
+# If it ask "Are you sure you want to continue connecting (yes/no/[fingerprint])?" Use fingerprint 
+# In my case I got an error after this "fatal: Could not read from remote repository.". But after this I tried again to git clone and it works.
+
+```
 
 
 
