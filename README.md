@@ -41,14 +41,15 @@ services:
   web:
     image: 'gitlab/gitlab-ee:latest'
     restart: always
-    hostname: 'gitlab.example.com'
+    hostname: 'gitlab.local.com'
     environment:
       GITLAB_OMNIBUS_CONFIG: |
-        external_url 'http://gitlab.example.com:8929'
-        gitlab_rails['gitlab_shell_ssh_port'] = 2224
+        external_url 'http://gitlab.local.com'
+        # Add any other gitlab.rb configuration here, each on its own line
     ports:
-      - '8929:80'
-      - '2224:22'
+      - '80:80'
+      - '443:443'
+      - '22:22'
     volumes:
       - '$GITLAB_HOME/config:/etc/gitlab'
       - '$GITLAB_HOME/logs:/var/log/gitlab'
@@ -72,7 +73,6 @@ sudo -E docker-compose up
 
 <br><br>
 
-
 Get your container name:
 ```bash
 sudo docker ps
@@ -87,6 +87,11 @@ sudo docker inspect containerNameHere
 # Will stand anywhere at the buttom
 # "IPAddress": "xx.x.x.x"
 ```
+  - Next add to your /etc/hosts
+  ```bash
+  sudo gedit /etc/hosts
+  12.34.56.78 gitlab.local.com
+  ```
 
 
 <br><br>
