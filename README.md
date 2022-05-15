@@ -104,6 +104,15 @@ cat initial_root_password
 
 
 
+<br><br>
+
+If needed you can reset your password of the root with:
+```
+sudo docker exec -it gitlab-ce bash
+gitlab-rake "gitlab:password:reset[root]"
+```
+
+
 
 
 
