@@ -173,3 +173,126 @@ _________________________________________________________
 <br><br>
 
 # gitlab-ci.yml
+```yaml
+stages:
+  - test
+
+scrap:
+  stage: test
+  script:
+    - npm i && npm run test
+```
+
+<br><br>
+In order to use Pipelines you must install gitlab-runner
+
+
+
+<br><br>
+<br><br>
+
+## gitlab-runner
+
+
+<br><br>
+<br><br>
+
+#### docker-compose local
+```yaml
+# docker-compose.yml
+networks:
+  default:
+    external:
+      name: localdev
+
+services:
+  gitlab:
+    extends:
+      file: services/gitlab/service.yml
+      service: web
+
+  gitlab-runner:
+    depends_on:
+      - gitlab
+    extends:
+      file: services/gitlab-runner/service.yml
+      service: gitlab-runner
+```
+
+
+```yaml
+# services/gitlab/service.yml
+version: '3.6'
+
+services:
+  web:
+    image: 'gitlab/gitlab-ee:latest'
+    restart: always
+    hostname: 'gitlab.local.com'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://gitlab.local.com'
+        # Add any other gitlab.rb configuration here, each on its own line
+    ports:
+      - '80:80'
+      - '443:443'
+      - '22:22'
+    volumes:
+      - '$GITLAB_HOME/config:/etc/gitlab'
+      - '$GITLAB_HOME/logs:/var/log/gitlab'
+      - '$GITLAB_HOME/data:/var/opt/gitlab'
+    shm_size: '256m'
+
+```
+
+```yaml
+# services/gitlab-runner/service.yml
+version: '3.6'
+
+services:
+  gitlab-runner:
+    image: gitlab/gitlab-runner:alpine
+    restart: unless-stopped
+    volumes:
+      - ./config/gitlab-runner:/etc/gitlab-runner
+      - /var/run/docker.sock:/var/run/docker.sock
+```
+
+<br><br>
+
+then run this command to configure the runner:
+```bash
+sudo docker-compose up -d
+sudo docker-compose exec gitlab-runner gitlab-runner register
+```
+
+It will ask you for details about the GitLab instance you want to attach to.
+You will find this information at https://<your-gitlab-domain>/admin/runners. This example is for my GitLab instance:
+```
+Runtime platform                                    arch=amd64 os=linux pid=38 revision=943fc252 version=13.7.0
+Running in system-mode.
+
+Enter the GitLab instance URL (for example, https://gitlab.com/):
+https://gitlab.local.com/
+Enter the registration token:
+Loo2lahf9Shoogheiyae
+Enter a description for the runner:
+[148a53203df8]: My-Runner
+Enter tags for the runner (comma-separated):
+
+Registering runner... succeeded                     runner=oc-oKWMH
+Enter an executor: custom, docker-ssh, shell, virtualbox, docker-ssh+machine, docker, parallels, ssh, docker+machine, kubernetes:
+shell
+Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded!
+```
+
+<br><br>
+If you specify tags then you must include them. To ignore tags and force run the runner you can use:
+- Project > Settings > CI/CD > Edit Button of your runner > Check "Indicates whether this runner can pick jobs without tags"
+  
+  
+<br><br>
+Now, restart the runner that is running with the old config (i.e. with no gitlab instance being attached):
+```
+docker-compose down
+```
