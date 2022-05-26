@@ -198,7 +198,8 @@ In order to use Pipelines you must install gitlab-runner
 <br><br>
 
 #### docker-compose local
-```.env
+```
+# .env
 GITLAB_HOME=/srv/gitlab
 GITLAB_ROOT_PASSWORD=root
 ```
