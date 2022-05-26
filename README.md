@@ -141,7 +141,15 @@ git clone git@gitlab.local.com:websites/porn-scrap.git
 
 
 
+<br><br>
+<br><br>
+_________________________________________________________
 
+<br><br>
+<br><br>
+
+# Disable LFS
+- Settings > General > Visibility, project features, permissions > Expand > Git Large File Storage (LFS)
 
 
 
