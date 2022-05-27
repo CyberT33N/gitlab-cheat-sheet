@@ -188,10 +188,23 @@ In order to use Pipelines you must install gitlab-runner
 
 
 
+
+
+
+
+
+
 <br><br>
 <br><br>
 
 ## gitlab-runner
+
+#### Group Runners
+- Go to your group -> CI/CD -> Runners
+  - http://gitlab.local.com/groups/websites/-/runners
+
+
+
 
 
 <br><br>
