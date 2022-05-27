@@ -198,10 +198,25 @@ In order to use Pipelines you must install gitlab-runner
 <br><br>
 
 ## gitlab-runner
+- https://docs.gitlab.com/runner/commands/
+
+
+
+
+
+
+
+
+<br><br>
+<br><br>
 
 #### Group Runners
 - Go to your group -> CI/CD -> Runners
   - http://gitlab.local.com/groups/websites/-/runners
+
+
+
+
 
 
 
