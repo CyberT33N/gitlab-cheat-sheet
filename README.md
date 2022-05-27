@@ -184,7 +184,7 @@ scrap:
 ```
 
 <br><br>
-In order to use Pipelines you must install gitlab-runner
+In order to use Pipelines you must install gitlab-runner. Read below..
 
 
 
@@ -207,18 +207,6 @@ In order to use Pipelines you must install gitlab-runner
 
 
 
-<br><br>
-<br><br>
-
-#### Group Runners
-- Go to your group -> CI/CD -> Runners
-  - http://gitlab.local.com/groups/websites/-/runners
-
-
-
-
-
-
 
 
 
@@ -226,11 +214,13 @@ In order to use Pipelines you must install gitlab-runner
 <br><br>
 
 #### docker-compose local
+- This will run gitlab-ee and gitlab-runner with docker-compose on localhost
 ```
 # .env
 GITLAB_HOME=/srv/gitlab
 GITLAB_ROOT_PASSWORD=root
 ```
+
 
 
 ```yaml
@@ -253,6 +243,7 @@ services:
       file: services/gitlab-runner/service.yml
       service: gitlab-runner
 ```
+
 
 
 ```yaml
@@ -280,6 +271,8 @@ services:
 
 ```
 
+
+
 ```yaml
 # services/gitlab-runner/service.yml
 version: '3.6'
@@ -295,14 +288,22 @@ services:
 
 <br><br>
 
-then run this command to configure the runner:
+Then run this command to configure/install the runner:
 ```bash
 sudo docker-compose up -d
 sudo docker-compose exec gitlab-runner gitlab-runner register
 ```
 
 It will ask you for details about the GitLab instance you want to attach to.
-You will find this information at https://<your-gitlab-domain>/admin/runners. This example is for my GitLab instance:
+You will find this information at http://gitlab.local.com/admin/runners. 
+  
+You can use aswell Group Runner that will be available for all your repos inside fo your group:
+- Go to your group -> CI/CD -> Runners
+  - http://gitlab.local.com/groups/websites/-/runners
+
+  
+This example is for my GitLab instance:
+- tags are optional
 ```
 Runtime platform                                    arch=amd64 os=linux pid=38 revision=943fc252 version=13.7.0
 Running in system-mode.
@@ -327,7 +328,28 @@ If you specify tags then you must include them. To ignore tags and force run the
   
   
 <br><br>
-Now, restart the runner that is running with the old config (i.e. with no gitlab instance being attached):
+At this point your runner and gitlab-ee should be running. After you registered your runner you do not have to run again the register command. You can use this script here:
 ```
-docker-compose down
+echo 'docker-compose down init..'
+sudo docker-compose down
+echo '\n\n'
+
+echo 'docker-compose up init..'
+sudo docker-compose up -d
+echo '\n\n'
+
+echo 'start gitlab-runner..'
+## Only needed for register
+# sudo docker-compose exec gitlab-runner gitlab-runner register
+sudo docker-compose start gitlab-runner
 ```
+  
+  
+  
+  
+
+
+
+
+
+
