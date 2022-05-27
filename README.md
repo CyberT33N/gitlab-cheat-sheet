@@ -294,6 +294,8 @@ sudo docker-compose up -d
 sudo docker-compose exec gitlab-runner gitlab-runner register
 ```
 
+<br><br>
+
 It will ask you for details about the GitLab instance you want to attach to.
 You will find this information at http://gitlab.local.com/admin/runners. 
   
@@ -301,6 +303,8 @@ You can use aswell Group Runner that will be available for all your repos inside
 - Go to your group -> CI/CD -> Runners
   - http://gitlab.local.com/groups/websites/-/runners
 
+
+<br><br>
   
 This example is for my GitLab instance:
 - tags are optional
@@ -328,7 +332,10 @@ If you specify tags then you must include them. To ignore tags and force run the
   
   
 <br><br>
-At this point your runner and gitlab-ee should be running. After you registered your runner you do not have to run again the register command. You can use this script here:
+At this point your runner should be registered+running and gitlab-ee should be running too. With the settings from above you will get config file for your gitlab-runner which must exist:
+- services/gitlab-runner/config/gitlab-runner/config.toml
+
+After you registered your runner you do not have to run again the register command. You can use this script here:
 ```
 echo 'docker-compose down init..'
 sudo docker-compose down
