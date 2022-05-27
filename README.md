@@ -194,19 +194,16 @@ In order to use Pipelines you must install gitlab-runner. Read below..
 
 
 
+
+
+
+
+
 <br><br>
 <br><br>
 
 ## gitlab-runner
 - https://docs.gitlab.com/runner/commands/
-
-
-
-
-
-
-
-
 
 
 
@@ -335,8 +332,8 @@ If you specify tags then you must include them. To ignore tags and force run the
 At this point your runner should be registered+running and gitlab-ee should be running too. With the settings from above you will get config file for your gitlab-runner which must exist:
 - services/gitlab-runner/config/gitlab-runner/config.toml
 
-After you registered your runner you do not have to run again the register command. You can use this script here:
-```
+After you registered your runner you do not have to run again the register command. You can just run this script:
+```bash
 echo 'docker-compose down init..'
 sudo docker-compose down
 echo '\n\n'
@@ -344,11 +341,6 @@ echo '\n\n'
 echo 'docker-compose up init..'
 sudo docker-compose up -d
 echo '\n\n'
-
-echo 'start gitlab-runner..'
-## Only needed for register
-# sudo docker-compose exec gitlab-runner gitlab-runner register
-sudo docker-compose start gitlab-runner
 ```
   
   
