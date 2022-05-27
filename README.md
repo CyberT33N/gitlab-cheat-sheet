@@ -172,7 +172,8 @@ _________________________________________________________
 <br><br>
 <br><br>
 
-# gitlab-ci.yml
+# .gitlab-ci.yml
+- Place this file in the root of your project
 ```yaml
 stages:
   - test
