@@ -259,7 +259,7 @@ _________________________________________________________
 <br><br>
 <br><br>
 
-## gitlab-runner
+# gitlab-runner
 - https://docs.gitlab.com/runner/commands/
 
 
@@ -267,7 +267,7 @@ _________________________________________________________
 <br><br>
 <br><br>
 
-#### docker-compose local
+## docker-compose local
 - This will run gitlab-ee and gitlab-runner with docker-compose on localhost
 ```
 # .env
@@ -411,13 +411,44 @@ echo '\n\n'
 <br><br>
 <br><br>
 
-#### config.toml
+## config.toml
 You can edit this file with:
 ```shell
 sudo docker exec -it dev-environment_gitlab-runner_1 bash
 vi /etc/gitlab-runner/config.toml
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+<br><br>
+<br><br>
+
+## register
+You can use non-interactive mode to register your runner:
+- https://docs.gitlab.com/runner/register/#one-line-registration-command
+```shell
+sudo gitlab-runner register \
+  --non-interactive \
+  --url "https://gitlab.com/" \
+  --registration-token "PROJECT_REGISTRATION_TOKEN" \
+  --executor "docker" \
+  --docker-image alpine:latest \
+  --description "docker-runner" \
+  --maintenance-note "Free-form maintainer notes about this runner" \
+  --tag-list "docker,aws" \
+  --run-untagged="true" \
+  --locked="false" \
+  --access-level="not_protected"
+```
 
 
 
