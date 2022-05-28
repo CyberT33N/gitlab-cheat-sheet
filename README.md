@@ -450,5 +450,8 @@ sudo gitlab-runner register \
   --access-level="not_protected"
 ```
 
+#### executor
+- You can choose between those executors which your runner should use. For local docker is recommended. Because then you can use docker base images e.q. node:18.2.0 and directly run npm i
+- https://docs.gitlab.com/runner/executors/
 
 
