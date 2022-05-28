@@ -449,3 +449,33 @@ sudo gitlab-runner register \
 - https://docs.gitlab.com/runner/executors/
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## protected branches
+- http://gitlab.local.com/puppeteer/puppeteerservices/-/settings/repository
+To protect a branch:
+On the top bar, select Menu > Projects and find your project.
+On the left sidebar, select Settings > Repository.
+Expand Protected branches.
+From the Branch dropdown list, select the branch you want to protect.
+From the Allowed to merge list, select a role, or group that can merge into this branch. In GitLab Premium, you can also add users.
+From the Allowed to push list, select a role, group, or user that can push to this branch. In GitLab Premium, you can also add users.
+Select Protect.
+
+
