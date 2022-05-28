@@ -408,4 +408,16 @@ echo '\n\n'
 
 
 
+<br><br>
+<br><br>
+
+#### config.toml
+You can edit this file with:
+```shell
+sudo docker exec -it dev-environment_gitlab-runner_1 bash
+vi /etc/gitlab-runner/config.toml
+```
+
+
+
 
