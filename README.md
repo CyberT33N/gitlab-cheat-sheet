@@ -176,10 +176,10 @@ _________________________________________________________
 - Place this file in the root of your project
 ```yaml
 stages:
-  - test
+  - testing
 
 scrap:
-  stage: test
+  stage: testing
   script:
     - npm i && npm run test
 ```
@@ -190,6 +190,28 @@ In order to use Pipelines you must install gitlab-runner. Read below..
 
 
 
+<br><br>
+<br><br>
+
+## Use scripts
+- Because gitlab will clone your project you can include .sh files to your project and then execute them in script tag
+```yaml
+# .gitlab-ci.yml
+stages:
+  - testing
+
+include:
+  - '/gitlab-ci/npm-run-test.yml'
+```
+```yaml
+# /gitlab-ci/npm-run-test.yml
+npm-run-test:
+  tags:
+    - test
+  stage: testing
+  script:
+    - bash gitlab-ci/utils/nvm/install-nvm.sh && npm i && npm run test
+```
 
 
 
@@ -199,6 +221,40 @@ In order to use Pipelines you must install gitlab-runner. Read below..
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br>
+<br><br>
+_________________________________________________________
 
 <br><br>
 <br><br>
