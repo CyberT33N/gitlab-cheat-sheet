@@ -173,8 +173,11 @@ _________________________________________________________
 <br><br>
 
 # .gitlab-ci.yml
-- Place this file in the root of your project
+- Place this file in the root of your project.
 ```yaml
+# If you use the docker executor on your gitlab-runner then you can set there the base image and do not have to set it like below. For more details check the gitlab-runner register section of this cheat sheet.
+image: node:18.2.0
+
 stages:
   - testing
 
