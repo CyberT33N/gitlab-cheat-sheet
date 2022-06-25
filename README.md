@@ -165,6 +165,14 @@ _________________________________________________________
 
 
 
+
+
+
+
+
+
+
+
 <br><br>
 <br><br>
 _________________________________________________________
@@ -215,6 +223,46 @@ npm-run-test:
   script:
     - bash gitlab-ci/utils/nvm/install-nvm.sh && npm i && npm run test
 ```
+
+
+
+
+
+
+
+
+<br><br>
+<br><br>
+
+## Use MongoDB in stage
+- Make sure that your tests in your project use the environment variable MONGO_URI
+- It is important that we use for host mongo and not localhost
+```yaml
+stagename:
+  tags:
+    - test
+  stage: testing
+  script:
+    - node -v
+    - npm -v
+    - npm i
+    - npm run test
+  services:
+    - mongo:latest
+  variables:
+    MONGO_URI: mongodb://test:test@mongo:27017/dbnamehere?authSource=admin
+    MONGO_INITDB_ROOT_USERNAME: test
+    MONGO_INITDB_ROOT_PASSWORD: test
+```
+
+
+
+
+
+
+
+
+
 
 
 
