@@ -1,5 +1,9 @@
-# gitlab-cheat-sheet
-Cheat Sheet for gitlab
+# Gitlab Cheat Sheet
+Cheat Sheet for gitlab with the most needed stuff..
+
+
+
+
 
 
 
@@ -141,6 +145,18 @@ git clone git@gitlab.local.com:websites/porn-scrap.git
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 <br><br>
 <br><br>
 _________________________________________________________
@@ -150,6 +166,26 @@ _________________________________________________________
 
 # Disable LFS
 - Settings > General > Visibility, project features, permissions > Expand > Git Large File Storage (LFS)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -197,6 +233,33 @@ scrap:
 
 <br><br>
 In order to use Pipelines you must install gitlab-runner. Read below..
+
+
+
+
+
+
+
+
+<br><br>
+<br><br>
+
+
+## Environment variables
+- https://docs.gitlab.com/ee/ci/variables/predefined_variables.html
+```
+process.env.CI
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
