@@ -5,6 +5,15 @@ Cheat Sheet for gitlab with the most needed stuff..
 
 
 
+## Guides
+- GitLab: Einstieg in die Versionskontrolle (Webinar vom 16. Mai 2018) https://www.youtube.com/watch?t=1751&v=j7OHSghOvjg&feature=youtu.be
+
+### Quick Actions
+- https://docs.gitlab.com/ee/user/project/quick_actions.html
+
+
+
+
 
 
 
@@ -216,7 +225,10 @@ _________________________________________________________
 <br><br>
 <br><br>
 
-# .gitlab-ci.yml
+
+# CI/CD
+
+## .gitlab-ci.yml
 - Place this file in the root of your project.
 ```yaml
 # If you use the docker executor on your gitlab-runner then you can set there the base image and do not have to set it like below. For more details check the gitlab-runner register section of this cheat sheet.
@@ -238,6 +250,29 @@ In order to use Pipelines you must install gitlab-runner. Read below..
 
 
 
+<br><br>
+<br><br>
+
+## Properties
+
+
+### only
+- Use specific branch
+
+### artifacts
+- Re-use files from previous jobs
+
+### needs 
+- Access your artifacts
+
+### image
+- Define the docker image where you want to run your stages on
+
+
+
+
+
+
 
 
 
@@ -247,12 +282,24 @@ In order to use Pipelines you must install gitlab-runner. Read below..
 
 ## Environment variables
 - https://docs.gitlab.com/ee/ci/variables/predefined_variables.html
+- https://docs.gitlab.com/ee/ci/variables/
+
+<br><br>
+
+### CI
+- See if you are inside of a gitlab job
 ```
 process.env.CI
 ```
 
 
+<br><br>
 
+### CI_COMMIT_REF_NAME
+- See which branch you at
+```
+process.env.CI_COMMIT_REF_NAME
+```
 
 
 
