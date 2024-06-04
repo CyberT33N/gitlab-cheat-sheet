@@ -268,6 +268,8 @@ In order to use Pipelines you must install gitlab-runner. Read below..
 ### image
 - Define the docker image where you want to run your stages on
 
+### scripts
+- https://docs.gitlab.com/ee/ci/yaml/script.html
 
 
 
@@ -324,6 +326,8 @@ stages:
 include:
   - '/gitlab-ci/npm-run-test.yml'
 ```
+
+
 ```yaml
 # /gitlab-ci/npm-run-test.yml
 npm-run-test:
@@ -333,6 +337,25 @@ npm-run-test:
   script:
     - bash gitlab-ci/utils/nvm/install-nvm.sh && npm i && npm run test
 ```
+
+### longs command
+- https://docs.gitlab.com/ee/ci/yaml/script.html#split-long-commands
+```yaml
+job:
+  script:
+    - |
+      echo "First command line."
+      echo "Second command line."
+      echo "Third command line."
+```
+
+
+
+
+
+
+
+
 
 
 
