@@ -31,6 +31,24 @@ _________________________________________________________
 <br><br>
 <br><br>
 
+
+# Helm Chart
+- https://github.com/CyberT33N/helm-cheat-sheet/blob/main/README.md#gitlab
+
+
+
+
+
+
+
+
+<br><br>
+<br><br>
+_________________________________________________________
+
+<br><br>
+<br><br>
+
 # Docker
 - https://docs.gitlab.com/ee/install/docker.html
 - https://hub.docker.com/r/gitlab/gitlab-ee/
