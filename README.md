@@ -230,6 +230,7 @@ _________________________________________________________
 # External Object Storage
 
 ## Minio
+- **Gitlab will use for default it's own minio instance. If you want to use an external one you can check it out here**
 - https://docs.gitlab.com/charts/advanced/external-object-storage/minio.html
 -MinIO is an object storage server that exposes S3-compatible APIs.
 
