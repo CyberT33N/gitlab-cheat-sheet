@@ -42,6 +42,22 @@ _________________________________________________________
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <br><br>
 <br><br>
 _________________________________________________________
@@ -184,10 +200,76 @@ git clone git@gitlab.local.com:websites/porn-scrap.git
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <br><br>
 <br><br>
 _________________________________________________________
+_________________________________________________________
+<br><br>
+<br><br>
 
+
+# External Object Storage
+
+## Minio
+- https://docs.gitlab.com/charts/advanced/external-object-storage/minio.html
+-MinIO is an object storage server that exposes S3-compatible APIs.
+
+MinIO can be deployed to several different platforms. To launch a new MinIO instance, follow their Quickstart Guide. Be sure to secure access to the MinIO server with TLS.
+
+To connect GitLab to an external MinIO instance, first create MinIO buckets for the GitLab application, using the bucket names in this example configuration file.
+
+Using the MinIO client, create the necessary buckets before use: 
+```shell
+mc mb gitlab-registry-storage
+mc mb gitlab-lfs-storage
+mc mb gitlab-artifacts-storage
+mc mb gitlab-uploads-storage
+mc mb gitlab-packages-storage
+mc mb gitlab-backup-storage
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br>
+<br><br>
+_________________________________________________________
+_________________________________________________________
 <br><br>
 <br><br>
 
