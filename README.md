@@ -761,3 +761,44 @@ From the Allowed to push list, select a role, group, or user that can push to th
 Select Protect.
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br>
+
+--- 
+
+<br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+# Utils
+
+## Local
+- https://github.com/firecow/gitlab-ci-local?utm_source=tldrdevops
+
