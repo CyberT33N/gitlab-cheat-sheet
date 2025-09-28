@@ -802,3 +802,6 @@ Select Protect.
 ## Local
 - https://github.com/firecow/gitlab-ci-local?utm_source=tldrdevops
 
+## CLI
+- https://python-gitlab.readthedocs.io/en/stable/cli-usage.html
+
