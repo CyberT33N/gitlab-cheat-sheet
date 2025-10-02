@@ -18,6 +18,18 @@ Cheat Sheet for gitlab with the most needed stuff..
 
 
 
+<br><br>
+<br><br>
+_________________________________________________________
+
+<br><br>
+<br><br>
+
+# REST API
+
+## Projects
+- https://docs.gitlab.com/api/projects/
+
 
 
 
