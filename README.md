@@ -850,7 +850,8 @@ Select Protect.
 # Scripts
 
 
-## Delete all projects
+## Delete all projects - No Pending
+- https://docs.gitlab.com/api/projects/
 ```
 #!/bin/bash
 set -euo pipefail
@@ -873,13 +874,10 @@ while :; do
     curl -sS -X DELETE --cacert "$CACERT" -H "PRIVATE-TOKEN: $GITLAB_TOKEN" \
       "$GITLAB_URL/api/v4/projects/$id" >/dev/null || true
     
-    # Wait a moment for soft-delete to process
-    sleep 2
-    
     echo "Permanently removing: $path ($id)"
-    # Try to permanently delete via project path (works for pending deletion projects)
+    # Use permanently_remove parameter to immediately delete the pending project
     curl -sS -X DELETE --cacert "$CACERT" -H "PRIVATE-TOKEN: $GITLAB_TOKEN" \
-      "$GITLAB_URL/api/v4/projects/$(printf '%s' "$path" | jq -sRr @uri)" >/dev/null 2>&1 || true
+      "$GITLAB_URL/api/v4/projects/$path_enc?permanently_remove=true&full_path=$path_enc" >/dev/null || true
   done
   page=$((page+1))
 done
